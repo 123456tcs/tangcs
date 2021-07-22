@@ -79,16 +79,16 @@ unsigned int writefile(int fd,int a,char data[])//写缓存data到文件
 	else printf("写入成功！\n");
 }
 
-unsigned int hextranoct(char *s)
+unsigned int hextranoct(char *s) //16进制转10进制函数
 {
-	int i,t;
+	int i,t; //记录临时数
 	long sum=0;
 	for(i=0;s[i];i++)
 	{
-		if(s[i]>='0' &&s[i]<='9') t=s[i]-'0';
-		if(s[i]>='a' &&s[i]<='z') t=s[i]-'a'+10;
+		if(s[i]>='0' &&s[i]<='9') t=s[i]-'0'; //字符是0～9时保持不变
+		if(s[i]>='a' &&s[i]<='z') t=s[i]-'a'+10; //字符是a~e时转换为10进制
 		if(s[i]>='A' &&s[i]<='Z') t=s[i]-'A'+10;
-		
+
 		sum = sum*16+t;
 	}
 	return sum;
